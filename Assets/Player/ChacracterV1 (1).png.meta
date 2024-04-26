@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9c658dbc691de234ba4be7e37ca3b4d7
+guid: 3e825a7047257c44e9559d8f1d7c6b06
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run-Sheet_0
+      name: ChacracterV1 (1)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
-        height: 80
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32114222484fbf94c80b354a0180491d
-      internalID: -2146338433
+      spriteID: 2ea5b70f7dd899649841bfb6263873af
+      internalID: -1583979102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run-Sheet_1
+      name: ChacracterV1 (1)_1
       rect:
         serializedVersion: 2
-        x: 80
+        x: 146
         y: 0
-        width: 80
-        height: 80
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cf1510d620c93d4291e0896802ba3ce
-      internalID: 1097189380
+      spriteID: 0d3acdee860960a4eaf0a4412b222c64
+      internalID: 1474017036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run-Sheet_2
+      name: ChacracterV1 (1)_2
       rect:
         serializedVersion: 2
-        x: 160
+        x: 292
         y: 0
-        width: 80
-        height: 80
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 407b266dd03e7484eb0e4f6501d13c1e
-      internalID: 1055420559
+      spriteID: 258969bfe64221941a87f804209441c6
+      internalID: -1469363373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run-Sheet_3
+      name: ChacracterV1 (1)_3
       rect:
         serializedVersion: 2
-        x: 240
+        x: 438
         y: 0
-        width: 80
-        height: 80
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daabea4deadc61d4e9b67cc3787d7390
-      internalID: 283789926
+      spriteID: 376723667ad5b5d448c6a59061ae0585
+      internalID: -1748427214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run-Sheet_4
+      name: ChacracterV1 (1)_4
       rect:
         serializedVersion: 2
-        x: 320
+        x: 584
         y: 0
-        width: 80
-        height: 80
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3018d7144602930428c1c61e628ba997
-      internalID: 548476423
+      spriteID: f5fa375ed7d0ff84dbd00609edb001f7
+      internalID: -1251282767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run-Sheet_5
+      name: ChacracterV1 (1)_5
       rect:
         serializedVersion: 2
-        x: 400
+        x: 730
         y: 0
-        width: 80
-        height: 80
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63c3f76408b358749b657c1188e0f09d
-      internalID: 1290518043
+      spriteID: ec418d7c35fe0174b957d128ab417629
+      internalID: -494135544
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run-Sheet_6
+      name: ChacracterV1 (1)_6
       rect:
         serializedVersion: 2
-        x: 480
+        x: 876
         y: 0
-        width: 80
-        height: 80
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,20 +250,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8286b836b026d94287874f21bc22670
-      internalID: -372306465
+      spriteID: 98f17b0c9d7ed2f4684d1a88aac6f301
+      internalID: -813567144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run-Sheet_7
+      name: ChacracterV1 (1)_7
       rect:
         serializedVersion: 2
-        x: 560
+        x: 1022
         y: 0
-        width: 80
-        height: 80
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e47591d6708f294cb691a18a67f36ef
-      internalID: 2117637456
+      spriteID: 5df9d08cbc5a8d940a055bff09a2f972
+      internalID: 279651418
       vertices: []
       indices: 
       edges: []
@@ -288,14 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Run-Sheet_0: -2146338433
-      Run-Sheet_1: 1097189380
-      Run-Sheet_2: 1055420559
-      Run-Sheet_3: 283789926
-      Run-Sheet_4: 548476423
-      Run-Sheet_5: 1290518043
-      Run-Sheet_6: -372306465
-      Run-Sheet_7: 2117637456
+      ChacracterV1 (1)_0: -1583979102
+      ChacracterV1 (1)_1: 1474017036
+      ChacracterV1 (1)_2: -1469363373
+      ChacracterV1 (1)_3: -1748427214
+      ChacracterV1 (1)_4: -1251282767
+      ChacracterV1 (1)_5: -494135544
+      ChacracterV1 (1)_6: -813567144
+      ChacracterV1 (1)_7: 279651418
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

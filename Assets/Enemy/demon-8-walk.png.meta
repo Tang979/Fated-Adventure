@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7be3660bc616dda4180bf13a59feb26e
+guid: 03e57fa5f2b27654ab41848e97433892
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump_0
+      name: demon-8-walk_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 28
+        y: 26
+        width: 74
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99bb9e3738db35b4c909f7cecc1bef4e
-      internalID: -1059875930
+      spriteID: 220801456c2858e4582fa73a8382571e
+      internalID: -1088259187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_1
+      name: demon-8-walk_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 134
+        y: 26
+        width: 78
+        height: 102
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c5dba660d8237944bd812f5a86513e9
-      internalID: -1002438881
+      spriteID: b88df9db184b21543a25da13e4e6cd0e
+      internalID: -1402306337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_2
+      name: demon-8-walk_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
+        x: 242
+        y: 26
+        width: 84
+        height: 102
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 874e2c8d307e67641a65feb7764907c4
-      internalID: 158179073
+      spriteID: edc4bfc5295353a4d917d988603b3d49
+      internalID: -1494127357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_3
+      name: demon-8-walk_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
+        x: 362
+        y: 26
+        width: 78
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 283e2b7023359e240984fca43a84ca62
-      internalID: -703994725
+      spriteID: 5eeed0f05a6e4644dacf0e2c384fdadb
+      internalID: 1968380230
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Jump_0: -1059875930
-      Jump_1: -1002438881
-      Jump_2: 158179073
-      Jump_3: -703994725
+      demon-8-walk_0: -1088259187
+      demon-8-walk_1: -1402306337
+      demon-8-walk_2: -1494127357
+      demon-8-walk_3: 1968380230
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
