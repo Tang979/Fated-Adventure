@@ -1,22 +1,23 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    float sizePlayer = 2.5f;
     public Rigidbody2D rb;
     public Animator animator;
     public float speed = 4;
     public float leftRight;
     public bool facingRight = true;
-    [SerializeField] int jumpPower;
-    bool isJumping = false;
+    [SerializeField] float jumpPower;
+    public Transform grcheck;
+    public LayerMask grLayer;
+    bool checkJump;
+    
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,23 +26,32 @@ public class PlayerMove : MonoBehaviour
         leftRight = Input.GetAxis("Horizontal");
         if(facingRight && leftRight<0)
         {
-            transform.localScale = new Vector3(-sizePlayer,sizePlayer,sizePlayer);
+            transform.localScale = new Vector3(-1,1,1);
             facingRight=false;
         }
         if(!facingRight && leftRight > 0)
         {
-            transform.localScale=new Vector3(sizePlayer,sizePlayer,sizePlayer);
+            transform.localScale=new Vector3(1,1,1);
             facingRight = true;
         }
         rb.velocity = new Vector2(speed*leftRight, rb.velocity.y);
-        animator.SetFloat("run", Math.Abs(leftRight));
         if(Input.GetKey("j"))
         {
             animator.SetTrigger("attack");
         }
-        if(Input.GetKey(KeyCode.Space))
+        jump();
+        animator.SetFloat("xVelocity", Math.Abs(leftRight));
+        animator.SetFloat("yVelocity", rb.velocity.y);
+    }
+    void jump()
+    {
+        checkJump = Physics2D.OverlapCircle(grcheck.position,0.2f,grLayer);
+        if(Input.GetKey(KeyCode.W) && checkJump)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            animator.SetFloat("yVelocity", 0);
+            animator.SetTrigger("jump");
+            checkJump=false;
         }
     }
 }
