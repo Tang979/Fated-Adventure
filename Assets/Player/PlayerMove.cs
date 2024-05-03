@@ -48,7 +48,7 @@ public class PlayerMove : MonoBehaviour
         checkJump = Physics2D.OverlapCircle(grcheck.position,0.2f,grLayer);
         if(Input.GetKey(KeyCode.W) && checkJump)
         {
-            rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            rb.velocity = new Vector2(rb.velocity.x,jumpPower);
             animator.SetFloat("yVelocity", 0);
             animator.SetTrigger("jump");
             checkJump=false;
