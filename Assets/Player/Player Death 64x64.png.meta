@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e825a7047257c44e9559d8f1d7c6b06
+guid: d7cfaeec3a266c644b06d83e25d2b699
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,169 +110,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChacracterV1 (1)_0
+      name: Player Death 64x64_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.33, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ea5b70f7dd899649841bfb6263873af
-      internalID: -1583979102
+      spriteID: bd24a0042ffe9804e9616eae981f0351
+      internalID: -1761703262
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_1
+      name: Player Death 64x64_1
       rect:
         serializedVersion: 2
-        x: 146
+        x: 144
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d3acdee860960a4eaf0a4412b222c64
-      internalID: 1474017036
+      spriteID: a8ee6300dffaab044b80f0488b113550
+      internalID: -2021886173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_2
+      name: Player Death 64x64_2
       rect:
         serializedVersion: 2
-        x: 292
+        x: 288
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.38, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 258969bfe64221941a87f804209441c6
-      internalID: -1469363373
+      spriteID: f0909ad79ee38c442b25f1a80c73f58d
+      internalID: 288835600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_3
+      name: Player Death 64x64_3
       rect:
         serializedVersion: 2
-        x: 438
+        x: 432
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.41, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 376723667ad5b5d448c6a59061ae0585
-      internalID: -1748427214
+      spriteID: 4b4c66a129d9ed940a4bf632ef37190c
+      internalID: 1422516984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_4
+      name: Player Death 64x64_4
       rect:
         serializedVersion: 2
-        x: 584
+        x: 576
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.41, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5fa375ed7d0ff84dbd00609edb001f7
-      internalID: -1251282767
+      spriteID: 486affd03b4eab940a8522790b3abc57
+      internalID: 1970898191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_5
+      name: Player Death 64x64_5
       rect:
         serializedVersion: 2
-        x: 730
+        x: 720
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.41, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec418d7c35fe0174b957d128ab417629
-      internalID: -494135544
+      spriteID: c8dba86e93ff8234ca10fcc12387d2ab
+      internalID: -343950117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_6
+      name: Player Death 64x64_6
       rect:
         serializedVersion: 2
-        x: 876
+        x: 864
         y: 0
-        width: 146
-        height: 158
+        width: 144
+        height: 144
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98f17b0c9d7ed2f4684d1a88aac6f301
-      internalID: -813567144
+      spriteID: b23592afe28937c46916608cd2a40062
+      internalID: 1827307122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_7
+      name: Player Death 64x64_7
       rect:
         serializedVersion: 2
-        x: 1022
+        x: 1008
         y: 0
-        width: 146
-        height: 158
+        width: 144
+        height: 144
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5df9d08cbc5a8d940a055bff09a2f972
-      internalID: 279651418
+      spriteID: 7d30a60d5aa606e4fad9272cfb5ad195
+      internalID: 671804730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Death 64x64_8
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3af6d4f192ab504ba83223c7430e528
+      internalID: -172547278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Death 64x64_9
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 0
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5932feb447a0d164591b5986f4589ba3
+      internalID: -1241516366
       vertices: []
       indices: 
       edges: []
@@ -288,14 +330,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ChacracterV1 (1)_0: -1583979102
-      ChacracterV1 (1)_1: 1474017036
-      ChacracterV1 (1)_2: -1469363373
-      ChacracterV1 (1)_3: -1748427214
-      ChacracterV1 (1)_4: -1251282767
-      ChacracterV1 (1)_5: -494135544
-      ChacracterV1 (1)_6: -813567144
-      ChacracterV1 (1)_7: 279651418
+      Player Death 64x64_0: -1761703262
+      Player Death 64x64_1: -2021886173
+      Player Death 64x64_2: 288835600
+      Player Death 64x64_3: 1422516984
+      Player Death 64x64_4: 1970898191
+      Player Death 64x64_5: -343950117
+      Player Death 64x64_6: 1827307122
+      Player Death 64x64_7: 671804730
+      Player Death 64x64_8: -172547278
+      Player Death 64x64_9: -1241516366
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
