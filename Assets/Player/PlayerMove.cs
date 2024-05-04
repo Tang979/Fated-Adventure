@@ -52,6 +52,7 @@ public class PlayerMove : MonoBehaviour
             animator.SetTrigger("attack");
         }
         jump();
+        healthBar.SetHealth(currentHealth);
         animator.SetFloat("xVelocity", Math.Abs(leftRight));
         animator.SetFloat("yVelocity", rb.velocity.y);
     }
@@ -66,18 +67,18 @@ public class PlayerMove : MonoBehaviour
             checkJump = false;
         }
     }
-    private void OnTriggerStay2D(Collider2D collider2D)
-    {
-        if (collider2D.CompareTag("Trap"))
-        {
-            if (elapsed == 0)
-            {
-                currentHealth -= 2;
-                healthBar.SetHealth(currentHealth);
-            }
-            elapsed += Time.deltaTime;
-            if (elapsed >= delay)
-                elapsed = 0;
-        }
-    }
+    // private void OnTriggerStay2D(Collider2D collider2D)
+    // {
+    //     if (collider2D.CompareTag("Trap"))
+    //     {
+    //         if (elapsed == 0)
+    //         {
+    //             currentHealth -= 2;
+    //             healthBar.SetHealth(currentHealth);
+    //         }
+    //         elapsed += Time.deltaTime;
+    //         if (elapsed >= delay)
+    //             elapsed = 0;
+    //     }
+    // }
 }
