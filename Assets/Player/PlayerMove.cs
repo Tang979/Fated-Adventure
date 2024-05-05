@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,8 +8,13 @@ public class PlayerMove : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     private float speed = 4;
-    private int slide = 10;
-    public float cdSlide = 3;
+
+    private bool canSlide = true;
+    private bool isSlide;
+    private float slidePower = 10f;
+    private float slideTime = 0.2f;
+    private float cdSlide = 1f;
+
     private int maxHealth = 100;
     private int maxStamina = 100;
     public int currentStamina;
@@ -36,13 +42,20 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (isSlide)
+            return;
         leftRight = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(speed * leftRight, rb.velocity.y);
         flip();
         if (Input.GetKey("j"))
         {
             animator.SetTrigger("attack");
+        }
+        if (Input.GetKey(KeyCode.K) && canSlide)
+        {
+            if (!isGrounded())
+                return;
+            StartCoroutine(Slide());
         }
         Jump();
         Slide();
@@ -64,7 +77,7 @@ public class PlayerMove : MonoBehaviour
     }
     private bool isGrounded()
     {
-        return Physics2D.OverlapCircle(grcheck.position, 0.2f, grLayer);
+        return Physics2D.OverlapCircle(grcheck.position, 0.1f, grLayer);
     }
     void Jump()
     {
@@ -84,13 +97,20 @@ public class PlayerMove : MonoBehaviour
             }
         }
     }
-    void Slide()
+    private IEnumerator Slide()
     {
-        if (Input.GetKey(KeyCode.K))
-        {
-            rb.velocity = new Vector2(rb.velocity.x + slide * transform.localScale.x, rb.velocity.y);
-        }
-        
+        canSlide = false;
+        isSlide = true;
+        animator.SetBool("isSlide", true);
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * slidePower, 0f);
+        yield return new WaitForSeconds(slideTime);
+        rb.gravityScale = originalGravity;
+        isSlide = false;
+        animator.SetBool("isSlide", false);
+        yield return new WaitForSeconds(cdSlide);
+        canSlide = true;
     }
     private void OnTriggerStay2D(Collider2D collider2D)
     {

@@ -4019,7 +4019,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1351760280}
   animator: {fileID: 1351760285}
-  cdSlide: 3
   currentStamina: 0
   currentHealth: 0
   healthBar: {fileID: 1238324095}
