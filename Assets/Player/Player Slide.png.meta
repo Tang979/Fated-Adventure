@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e825a7047257c44e9559d8f1d7c6b06
+guid: 3b784313b01fedc4d9f527a7ed191025
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,169 +110,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChacracterV1 (1)_0
+      name: Player Slide_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ea5b70f7dd899649841bfb6263873af
-      internalID: -1583979102
+      spriteID: 5ceecceb266a30743a042efd48a555a0
+      internalID: -777814576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_1
+      name: Player Slide_1
       rect:
         serializedVersion: 2
-        x: 146
+        x: 144
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d3acdee860960a4eaf0a4412b222c64
-      internalID: 1474017036
+      spriteID: e4cd9beebc859754c8a62bf57c380314
+      internalID: -1447042218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_2
+      name: Player Slide_2
       rect:
         serializedVersion: 2
-        x: 292
+        x: 288
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 258969bfe64221941a87f804209441c6
-      internalID: -1469363373
+      spriteID: c6cf14dda8d0e6e40b2175619ee64e01
+      internalID: 1535611551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_3
+      name: Player Slide_3
       rect:
         serializedVersion: 2
-        x: 438
+        x: 432
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 376723667ad5b5d448c6a59061ae0585
-      internalID: -1748427214
+      spriteID: a2b31973e01800c4ea5f7321246396a6
+      internalID: 462241832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_4
+      name: Player Slide_4
       rect:
         serializedVersion: 2
-        x: 584
+        x: 576
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5fa375ed7d0ff84dbd00609edb001f7
-      internalID: -1251282767
+      spriteID: 98b2356ec1920574abc90409b3218a99
+      internalID: 1285142040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_5
+      name: Player Slide_5
       rect:
         serializedVersion: 2
-        x: 730
+        x: 720
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec418d7c35fe0174b957d128ab417629
-      internalID: -494135544
+      spriteID: aab13f660cbd96c4cb61292dc201652d
+      internalID: -29734238
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_6
+      name: Player Slide_6
       rect:
         serializedVersion: 2
-        x: 876
+        x: 864
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98f17b0c9d7ed2f4684d1a88aac6f301
-      internalID: -813567144
+      spriteID: a0e44f3eaeeee6847b5e8b2430aff7e8
+      internalID: -713652624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChacracterV1 (1)_7
+      name: Player Slide_7
       rect:
         serializedVersion: 2
-        x: 1022
+        x: 1008
         y: 0
-        width: 146
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 144
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5df9d08cbc5a8d940a055bff09a2f972
-      internalID: 279651418
+      spriteID: 8902a4db3fd936b49a5519ab3f492602
+      internalID: 100887389
       vertices: []
       indices: 
       edges: []
@@ -288,14 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ChacracterV1 (1)_0: -1583979102
-      ChacracterV1 (1)_1: 1474017036
-      ChacracterV1 (1)_2: -1469363373
-      ChacracterV1 (1)_3: -1748427214
-      ChacracterV1 (1)_4: -1251282767
-      ChacracterV1 (1)_5: -494135544
-      ChacracterV1 (1)_6: -813567144
-      ChacracterV1 (1)_7: 279651418
+      Player Slide_0: -777814576
+      Player Slide_1: -1447042218
+      Player Slide_2: 1535611551
+      Player Slide_3: 462241832
+      Player Slide_4: 1285142040
+      Player Slide_5: -29734238
+      Player Slide_6: -713652624
+      Player Slide_7: 100887389
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

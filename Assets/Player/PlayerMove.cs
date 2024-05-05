@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,6 +8,13 @@ public class PlayerMove : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     private float speed = 4;
+
+    private bool canSlide = true;
+    private bool isSlide;
+    private float slidePower = 10f;
+    private float slideTime = 0.2f;
+    private float cdSlide = 1f;
+
     private int maxHealth = 100;
     private int maxStamina = 100;
     public int currentStamina;
@@ -17,7 +25,7 @@ public class PlayerMove : MonoBehaviour
     private float jumpPower = 7;
     public Transform grcheck;
     public LayerMask grLayer;
-    private bool checkJump;
+    private bool doubleJump = false;
     private float delay = 1f;
     private float elapsed = 0;
 
@@ -34,9 +42,28 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (isSlide)
+            return;
         leftRight = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(speed * leftRight, rb.velocity.y);
+        flip();
+        if (Input.GetKey("j"))
+        {
+            animator.SetTrigger("attack");
+        }
+        if (Input.GetKey(KeyCode.K) && canSlide)
+        {
+            if (!isGrounded())
+                return;
+            StartCoroutine(Slide());
+        }
+        Jump();
+        Slide();
+        animator.SetFloat("xVelocity", Math.Abs(leftRight));
+        animator.SetFloat("yVelocity", rb.velocity.y);
+    }
+    void flip()
+    {
         if (facingRight && leftRight < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
@@ -47,25 +74,43 @@ public class PlayerMove : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
             facingRight = true;
         }
-        if (Input.GetKey("j"))
-        {
-            animator.SetTrigger("attack");
-        }
-        jump();
-        healthBar.SetHealth(currentHealth);
-        animator.SetFloat("xVelocity", Math.Abs(leftRight));
-        animator.SetFloat("yVelocity", rb.velocity.y);
     }
-    void jump()
+    private bool isGrounded()
     {
-        checkJump = Physics2D.OverlapCircle(grcheck.position, 0.2f, grLayer);
-        if (Input.GetKey(KeyCode.W) && checkJump)
+        return Physics2D.OverlapCircle(grcheck.position, 0.1f, grLayer);
+    }
+    void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            animator.SetFloat("yVelocity", 0);
-            animator.SetTrigger("jump");
-            checkJump = false;
+            if (isGrounded())
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+                animator.SetTrigger("jump");
+                doubleJump = true;
+            }
+            else if (doubleJump)
+            {
+                animator.SetTrigger("doubleJump");
+                rb.velocity = new Vector2(rb.velocity.x, jumpPower * 0.8f);
+                doubleJump = false;
+            }
         }
+    }
+    private IEnumerator Slide()
+    {
+        canSlide = false;
+        isSlide = true;
+        animator.SetBool("isSlide", true);
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * slidePower, 0f);
+        yield return new WaitForSeconds(slideTime);
+        rb.gravityScale = originalGravity;
+        isSlide = false;
+        animator.SetBool("isSlide", false);
+        yield return new WaitForSeconds(cdSlide);
+        canSlide = true;
     }
     private void OnTriggerStay2D(Collider2D collider2D)
     {
@@ -80,5 +125,10 @@ public class PlayerMove : MonoBehaviour
             if (elapsed >= delay)
                 elapsed = 0;
         }
+    }
+    private void OnTriggerExit2D(Collider2D collider2D)
+    {
+        if (collider2D.CompareTag("Trap"))
+            elapsed = 0;
     }
 }
