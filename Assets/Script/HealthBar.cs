@@ -10,26 +10,26 @@ public class HealthBar : MonoBehaviour
     public Gradient gradient;
     public Image fill;
     
-    public void SetMaxHealt(int healthPlayer)
+    public void SetMaxHealt(float healthPlayer)
     {
         health.maxValue = healthPlayer;
         health.value = healthPlayer;
         fill.color = gradient.Evaluate(1f);
     }
 
-    public void SetHealth(int healthPlayer)
+    public void SetHealth(float healthPlayer)
     {
         health.value = healthPlayer;
         fill.color = gradient.Evaluate(health.normalizedValue);
     }
 
-    public void SetMaxStamina(int staminaPlayer)
+    public void SetMaxStamina(float staminaPlayer)
     {
         stamina.maxValue = staminaPlayer;
         stamina.value = staminaPlayer;
     }
 
-    public void SetStamina(int staminaPlayer)
+    public void SetStamina(float staminaPlayer)
     {
         stamina.value = staminaPlayer;
     }

@@ -15,10 +15,10 @@ public class PlayerMove : MonoBehaviour
     private float slideTime = 0.2f;
     private float cdSlide = 1f;
 
-    private int maxHealth = 100;
-    private int maxStamina = 100;
-    public int currentStamina;
-    public int currentHealth;
+    private float maxHealth = 100;
+    private float maxStamina = 100;
+    public float currentStamina;
+    public float currentHealth;
     public HealthBar healthBar;
     private float leftRight;
     private bool facingRight = true;
@@ -118,8 +118,7 @@ public class PlayerMove : MonoBehaviour
         {
             if (elapsed == 0)
             {
-                currentHealth -= 2;
-                healthBar.SetHealth(currentHealth);
+                TakeDame(5);
             }
             elapsed += Time.deltaTime;
             if (elapsed >= delay)
@@ -130,5 +129,11 @@ public class PlayerMove : MonoBehaviour
     {
         if (collider2D.CompareTag("Trap"))
             elapsed = 0;
+    }
+    public void TakeDame(float dame)
+    {
+        animator.SetTrigger("hurt");
+        currentHealth -= dame;
+        healthBar.SetHealth(currentHealth);
     }
 }
