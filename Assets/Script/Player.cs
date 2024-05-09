@@ -10,11 +10,11 @@ public class Player : MonoBehaviour
     public Animator animator;
     private float speed = 4;
 
-    private bool canSlide = true;
+    private bool canSlide = true, canAttack = true;
     private bool isSlide;
     private float slidePower = 10f;
-    private float slideTime = 0.2f;
-    private float cdSlide = 1f;
+    private float slideTime = 0.2f, attackTime;
+    private float cdSlide = 1f, cdattack = 1f;
 
     private float maxHealth = 100;
     private float maxStamina = 100;
@@ -66,13 +66,22 @@ public class Player : MonoBehaviour
     public void Attack()
     {
         Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, attackRange, enemyLayer);
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J) && canAttack == true)
         {
+            attackTime = cdattack;
             animator.SetTrigger("attack");
             if (hit)
             {
                 hit.GetComponent<CanineController>().TakeDame(dame);
             }
+            canAttack = false;
+        }
+        else
+        {
+            if(attackTime<=0)
+                canAttack = true;
+            else
+                attackTime-=Time.deltaTime;
         }
     }
     void flip()

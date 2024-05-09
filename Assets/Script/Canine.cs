@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CanineController : Enemy
@@ -10,11 +11,11 @@ public class CanineController : Enemy
     public Animator animator;
     public float distance = 1.5f;
     public float range = 1.5f;
-    private bool canattack = true;
-    private bool isattack;
-    private float attackTime = 0.2f;
-    private float cdattack = 1f;
     public bool facingRight = true;
+
+    private bool canAttack = true;
+    private float attackTime;
+    private float cdattack = .5f;
     public override void DectectingGround()
     {
         Collider2D hit = Physics2D.OverlapCircle(detectPoint.position, 0.1f, layerMask);
@@ -37,25 +38,22 @@ public class CanineController : Enemy
     {
         if (Vector2.Distance(player.position, transform.position) <= range)
         {
-            isRange();
+            if (canAttack)
+            {
+                attackTime = cdattack;
+                animator.SetBool("isRange", true);
+                canAttack = !canAttack;
+            }
+
         }
         else
         {
+            if (attackTime <= 0)
+                canAttack = !canAttack;
+            attackTime -= Time.deltaTime;
             animator.SetBool("isRange", false);
             transform.Translate(Vector2.right * Speed * Time.deltaTime);
         }
-    }
-
-    public IEnumerator isRange()
-    {
-        canattack = false;
-        isattack = true;
-        animator.SetBool("isRange", true);
-        yield return new WaitForSeconds(attackTime);
-        isattack = false;
-        animator.SetBool("isRange", false);
-        yield return new WaitForSeconds(cdattack);
-        canattack = true;
     }
 
     public void TakeDame(float dame)
@@ -66,7 +64,7 @@ public class CanineController : Enemy
 
     public void Death()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void Attack()
@@ -92,10 +90,12 @@ public class CanineController : Enemy
         if (Health <= 0)
         {
             animator.SetTrigger("death");
-            return;
         }
-        Move();
-        DectectingGround();
+        else
+        {
+            Move();
+            DectectingGround();
+        }
     }
     void OnDrawGizmosSelected()
     {
