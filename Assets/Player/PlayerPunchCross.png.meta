@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8f0f20278475bea438e7b71f6f412791
+guid: 6bc83e0ad7b835647abd97d11885a60c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Canine_White_Hit_0
+      name: PlayerPunchCross_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 32
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38e80655a462b4849be1814ab14c3935
-      internalID: -609106197
+      spriteID: 03da24fce24f3b944adf9e585f38a6fe
+      internalID: -987654385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Canine_White_Hit_1
+      name: PlayerPunchCross_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 192
         y: 0
-        width: 48
-        height: 32
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 850c59940ce18f349ac8e8befbb5b892
-      internalID: -2020812030
+      spriteID: 23a44a2191102a8458db039dba2b825d
+      internalID: -1480903071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Canine_White_Hit_2
+      name: PlayerPunchCross_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 384
         y: 0
-        width: 48
-        height: 32
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5eeed98714662c0478bddcaa87a63b94
-      internalID: -1013218877
+      spriteID: 3c0c4e5c50b97db499d14c0861f1ea56
+      internalID: -871746159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Canine_White_Hit_3
+      name: PlayerPunchCross_3
       rect:
         serializedVersion: 2
-        x: 144
+        x: 576
         y: 0
-        width: 48
-        height: 32
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fdc448f08b63ef40a12b8150e1046b1
-      internalID: -2089672976
+      spriteID: 08106515e49b77b42b2ab805fa8a4492
+      internalID: -1107493285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPunchCross_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a88d4950f9d0324699c6dd9ea1486f2
+      internalID: -2082176150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPunchCross_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99bb18b45f1f4ee4daba39b71d5eb048
+      internalID: 916074472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPunchCross_6
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07c3f47b7c6af934e80666a1bb1b5fdd
+      internalID: -1124104326
       vertices: []
       indices: 
       edges: []
@@ -204,10 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Canine_White_Hit_0: -609106197
-      Canine_White_Hit_1: -2020812030
-      Canine_White_Hit_2: -1013218877
-      Canine_White_Hit_3: -2089672976
+      PlayerPunchCross_0: -987654385
+      PlayerPunchCross_1: -1480903071
+      PlayerPunchCross_2: -871746159
+      PlayerPunchCross_3: -1107493285
+      PlayerPunchCross_4: -2082176150
+      PlayerPunchCross_5: 916074472
+      PlayerPunchCross_6: -1124104326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

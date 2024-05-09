@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-public class DemonController : Enemy
+public class CanineController : Enemy
 {
     public Transform detectPoint, player, attackRange;
     public LayerMask layerMask, playerMask;
     public Animator animator;
-    public float distance = 0.5f;
+    public float distance = 1.5f;
     public float range = 1.5f;
-    private float delay = 2f;
-    private float elapsed = 0;
+    private bool canattack = true;
+    private bool isattack;
+    private float attackTime = 0.2f;
+    private float cdattack = 1f;
     public bool facingRight = true;
     public override void DectectingGround()
     {
@@ -35,7 +37,7 @@ public class DemonController : Enemy
     {
         if (Vector2.Distance(player.position, transform.position) <= range)
         {
-            animator.SetBool("isRange", true);
+            isRange();
         }
         else
         {
@@ -44,12 +46,35 @@ public class DemonController : Enemy
         }
     }
 
+    public IEnumerator isRange()
+    {
+        canattack = false;
+        isattack = true;
+        animator.SetBool("isRange", true);
+        yield return new WaitForSeconds(attackTime);
+        isattack = false;
+        animator.SetBool("isRange", false);
+        yield return new WaitForSeconds(cdattack);
+        canattack = true;
+    }
+
+    public void TakeDame(float dame)
+    {
+        Health -= dame;
+        animator.SetTrigger("hit");
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject);
+    }
+
     public void Attack()
     {
         Collider2D hit = Physics2D.OverlapCircle(attackRange.position, range, playerMask);
         if (hit)
         {
-            hit.GetComponent<PlayerMove>().TakeDame(15);
+            hit.GetComponent<Player>().TakeDame(15);
         }
 
     }
@@ -64,7 +89,17 @@ public class DemonController : Enemy
     // Update is called once per frame
     void Update()
     {
+        if (Health <= 0)
+        {
+            animator.SetTrigger("death");
+            return;
+        }
         Move();
         DectectingGround();
+    }
+    void OnDrawGizmosSelected()
+    {
+        // Display the explosion radius when selected
+        Gizmos.DrawSphere(detectPoint.position, distance);
     }
 }
