@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 using System;
 using System.Collections;
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
     private bool canSlide = true, canAttack = true;
     private bool isSlide;
     private float slidePower = 10f;
-    private float slideTime = 0.2f, attackTime;
+    private float slideTime = .2f, attackTime;
     private float cdSlide = 1f, cdattack = 1f;
 
     private float maxHealth = 100;
@@ -52,13 +53,13 @@ public class Player : MonoBehaviour
         leftRight = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(speed * leftRight, rb.velocity.y);
         flip();
-        Attack();
-        if (Input.GetKey(KeyCode.S) && canSlide && currentStamina>20)
+        if (Input.GetKey(KeyCode.S) && canSlide && currentStamina > 20)
         {
             if (!isGrounded())
                 return;
             StartCoroutine(Slide());
         }
+        Attack();
         Jump();
         animator.SetFloat("xVelocity", Math.Abs(leftRight));
         animator.SetFloat("yVelocity", rb.velocity.y);
@@ -78,10 +79,10 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if(attackTime<=0)
+            if (attackTime <= 0)
                 canAttack = true;
             else
-                attackTime-=Time.deltaTime;
+                attackTime -= Time.deltaTime;
         }
     }
     void flip()
