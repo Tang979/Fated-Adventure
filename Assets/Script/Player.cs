@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     private bool doubleJump = false;
     private float delay = 1f;
     private float elapsed = 0;
-    [SerializeField] private CircleCollider2D circleCollider;
+    [SerializeField] private BoxCollider2D boxCollider;
     private Health enemyHealth;
 
     // Start is called before the first frame update
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
     }
     public void DameEnemy()
     {
-        RaycastHit2D hit = Physics2D.CircleCast(circleCollider.bounds.center, circleCollider.radius, Vector2.right, enemyLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size,0, Vector2.right,0, enemyLayer);
         if (hit != null)
         {
             enemyHealth = hit.transform.GetComponent<Health>();
@@ -183,6 +183,6 @@ public class Player : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(circleCollider.bounds.center, circleCollider.radius);
+        Gizmos.DrawWireCube(boxCollider.bounds.center, boxCollider.bounds.size);
     }
 }
