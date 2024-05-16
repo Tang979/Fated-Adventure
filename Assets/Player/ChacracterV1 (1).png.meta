@@ -113,10 +113,10 @@ TextureImporter:
       name: ChacracterV1 (1)_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 28
-        width: 66
-        height: 123
+        x: 0
+        y: 0
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: ChacracterV1 (1)_1
       rect:
         serializedVersion: 2
-        x: 180
-        y: 28
-        width: 69
-        height: 117
+        x: 146
+        y: 0
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +155,10 @@ TextureImporter:
       name: ChacracterV1 (1)_2
       rect:
         serializedVersion: 2
-        x: 326
-        y: 28
-        width: 69
-        height: 117
+        x: 292
+        y: 0
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: ChacracterV1 (1)_3
       rect:
         serializedVersion: 2
-        x: 472
-        y: 28
-        width: 69
-        height: 117
+        x: 438
+        y: 0
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: ChacracterV1 (1)_4
       rect:
         serializedVersion: 2
-        x: 618
-        y: 28
-        width: 69
-        height: 117
+        x: 584
+        y: 0
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: ChacracterV1 (1)_5
       rect:
         serializedVersion: 2
-        x: 764
-        y: 28
-        width: 69
-        height: 117
+        x: 730
+        y: 0
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,10 +239,10 @@ TextureImporter:
       name: ChacracterV1 (1)_6
       rect:
         serializedVersion: 2
-        x: 910
-        y: 28
-        width: 66
-        height: 123
+        x: 876
+        y: 0
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +260,10 @@ TextureImporter:
       name: ChacracterV1 (1)_7
       rect:
         serializedVersion: 2
-        x: 1056
-        y: 28
-        width: 66
-        height: 126
+        x: 1022
+        y: 0
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
