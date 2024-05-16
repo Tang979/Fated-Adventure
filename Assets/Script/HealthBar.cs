@@ -5,30 +5,32 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Slider healthSlider;
+    public Slider health;
+    public Slider stamina;
     public Gradient gradient;
     public Image fill;
-    private Health health;
     
-    public void SetMaxHealt(float healthSliderPlayer)
+    public void SetMaxHealt(int healthPlayer)
     {
-        healthSlider.maxValue = healthSliderPlayer;
-        healthSlider.value = health.CurrentHealth;
+        health.maxValue = healthPlayer;
+        health.value = healthPlayer;
         fill.color = gradient.Evaluate(1f);
     }
-    void Start()
+
+    public void SetHealth(int healthPlayer)
     {
-        health = GetComponent<Health>();
-        SetMaxHealt(health.MaxHealth);
+        health.value = healthPlayer;
+        fill.color = gradient.Evaluate(health.normalizedValue);
     }
-    void Update()
+
+    public void SetMaxStamina(int staminaPlayer)
     {
-        SethealthSlider();
+        stamina.maxValue = staminaPlayer;
+        stamina.value = staminaPlayer;
     }
-    public void SethealthSlider()
+
+    public void SetStamina(int staminaPlayer)
     {
-        healthSlider.value = health.CurrentHealth;
-        fill.color = gradient.Evaluate(healthSlider.normalizedValue);
+        stamina.value = staminaPlayer;
     }
 }
