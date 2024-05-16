@@ -1,55 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float health;
-    [SerializeField] private float speed;
-    [SerializeField] private float dame;
-    [SerializeField] private float range;
-    public Rigidbody2D rb;
-    public Transform detect;
-    public LayerMask groundLayer;
-    private bool rightFace = true;
+    float cdhit = .2f;
+    float hitTimer = 0;
+    bool hiting = false;
+    private Animator animator;
+    private EnemyPatrol enemyPatrol;
 
-    public float Health { get => health; set => health = value; }
-    public float Speed { get => speed; set => speed = value; }
-    public float Dame { get => dame; set => dame = value; }
-    public float Range { get => range; set => range = value; }
-
-    public void Move()
+    private void Awake()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
-        RaycastHit2D hit = Physics2D.Raycast(detect.position, Vector2.right, Range, groundLayer);
-        if(hit)
+        animator = GetComponent<Animator>();
+        enemyPatrol = GetComponent<EnemyPatrol>();
+    }
+    private void Update()
+    {
+        if (health <= 0)
         {
-            if(rightFace)
+            enemyPatrol.enabled = false;
+            animator.SetBool("death", true);
+        }
+        if(hiting)
+        {
+            hitTimer+=Time.deltaTime;
+            enemyPatrol.enabled = false;
+            if(hitTimer > cdhit)
             {
-                rightFace = false;
-                transform.eulerAngles = new Vector3(0,180,0);
-            }
-            else
-            {
-                rightFace = true;
-                transform.eulerAngles = new Vector3(0,0,0);
+                hiting = false;
+                enemyPatrol.enabled = true;
+                hitTimer=0;
             }
         }
     }
-    public void Attack()
-    {
-        GetComponent<Player>().TakeDame(dame);
-    }
-    public void TakeDame(float dame)
-    {
-        Health -= dame;
-    }
-    public void Death()
-    {
-
-    }
-    public void OnDrawnGizmosSelected()
-    {
-        Gizmos.DrawRay(rb.position, Vector2.right * Range);
-    }
+    
 }

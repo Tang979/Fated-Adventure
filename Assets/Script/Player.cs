@@ -17,12 +17,13 @@ public class Player : MonoBehaviour
     private float slideTime = .2f, attackTime;
     private float cdSlide = 1f, cdattack = 1f;
 
-    private float maxHealth = 100;
+    private Health health;
     private float maxStamina = 100;
     private float dame = 5;
     public float currentStamina;
-    public float currentHealth;
-    [SerializeField] private statusBar statusBar;
+    
+    [SerializeField] private HealthBar healthBar;
+    [SerializeField] private Stamina staminaBar;
     private float leftRight;
     private bool facingRight = true;
     private float jumpPower = 7;
@@ -31,17 +32,18 @@ public class Player : MonoBehaviour
     private bool doubleJump = false;
     private float delay = 1f;
     private float elapsed = 0;
-    private float attackRange = 2;
+    [SerializeField] private CircleCollider2D circleCollider;
+    private Health enemyHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        currentHealth = maxHealth;
+        health = GetComponent<Health>();
         currentStamina = maxStamina;
-        statusBar.SetMaxHealt(maxHealth);
-        statusBar.SetMaxStamina(maxStamina);
+        healthBar.SetMaxHealt(health.MaxHealth);
+        staminaBar.SetMaxStamina(maxStamina);
     }
 
     // Update is called once per frame
@@ -66,15 +68,10 @@ public class Player : MonoBehaviour
     }
     public void Attack()
     {
-        Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, attackRange, enemyLayer);
         if (Input.GetKeyDown(KeyCode.J) && canAttack == true)
         {
             attackTime = cdattack;
             animator.SetTrigger("attack");
-            if (hit)
-            {
-                hit.GetComponent<CanineController>().TakeDame(dame);
-            }
             canAttack = false;
         }
         else
@@ -85,6 +82,16 @@ public class Player : MonoBehaviour
                 attackTime -= Time.deltaTime;
         }
     }
+    public void DameEnemy()
+    {
+        RaycastHit2D hit = Physics2D.CircleCast(circleCollider.bounds.center, circleCollider.radius, Vector2.right, enemyLayer);
+        if (hit != null)
+        {
+            enemyHealth = hit.transform.GetComponent<Health>();
+        }
+        enemyHealth.TakeDame(dame);
+    }
+
     void flip()
     {
         if (facingRight && leftRight < 0)
@@ -139,7 +146,7 @@ public class Player : MonoBehaviour
     private void Stamina(float stamina)
     {
         currentStamina -= stamina;
-        statusBar.SetStamina(currentStamina);
+        staminaBar.SetStamina(currentStamina);
     }
     private void HealhStamina()
     {
@@ -151,7 +158,7 @@ public class Player : MonoBehaviour
         else
         {
             currentStamina += Time.deltaTime;
-            statusBar.SetStamina(currentStamina);
+            staminaBar.SetStamina(currentStamina);
         }
     }
     private void OnTriggerStay2D(Collider2D collider2D)
@@ -160,7 +167,7 @@ public class Player : MonoBehaviour
         {
             if (elapsed == 0)
             {
-                TakeDame(5);
+                health.TakeDame(5);
             }
             elapsed += Time.deltaTime;
             if (elapsed >= delay)
@@ -172,15 +179,10 @@ public class Player : MonoBehaviour
         if (collider2D.CompareTag("Trap"))
             elapsed = 0;
     }
-    public void TakeDame(float dame)
+    
+    private void OnDrawGizmos()
     {
-        if (currentHealth <= 0)
-        {
-            animator.SetBool("Death", true);
-            return;
-        }
-        animator.SetTrigger("hurt");
-        currentHealth -= dame;
-        statusBar.SetHealth(currentHealth);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(circleCollider.bounds.center, circleCollider.radius);
     }
 }
