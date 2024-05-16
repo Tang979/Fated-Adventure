@@ -1,67 +1,97 @@
+using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Animator animator;
     private float speed = 4;
 
-    private bool canSlide = true;
+    private bool canSlide = true, canAttack = true;
     private bool isSlide;
     private float slidePower = 10f;
-    private float slideTime = 0.2f;
-    private float cdSlide = 1f;
+    private float slideTime = .2f, attackTime;
+    private float cdSlide = 1f, cdattack = 1f;
 
-    private int maxHealth = 100;
-    private int maxStamina = 100;
-    public int currentStamina;
-    public int currentHealth;
-    public HealthBar healthBar;
+    private Health health;
+    private float maxStamina = 100;
+    private float dame = 5;
+    public float currentStamina;
+    
+    [SerializeField] private HealthBar healthBar;
+    [SerializeField] private Stamina staminaBar;
     private float leftRight;
     private bool facingRight = true;
     private float jumpPower = 7;
-    public Transform grcheck;
-    public LayerMask grLayer;
+    public Transform grcheck, attackPoint;
+    public LayerMask grLayer, enemyLayer;
     private bool doubleJump = false;
     private float delay = 1f;
     private float elapsed = 0;
+    [SerializeField] private BoxCollider2D boxCollider;
+    private Health enemyHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        currentHealth = maxHealth;
+        health = GetComponent<Health>();
         currentStamina = maxStamina;
-        healthBar.SetMaxHealt(maxHealth);
+        healthBar.SetMaxHealt(health.MaxHealth);
+        staminaBar.SetMaxStamina(maxStamina);
     }
 
     // Update is called once per frame
     void Update()
     {
+        HealhStamina();
         if (isSlide)
             return;
         leftRight = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(speed * leftRight, rb.velocity.y);
         flip();
-        if (Input.GetKey("j"))
-        {
-            animator.SetTrigger("attack");
-        }
-        if (Input.GetKey(KeyCode.K) && canSlide)
+        if (Input.GetKey(KeyCode.S) && canSlide && currentStamina > 20)
         {
             if (!isGrounded())
                 return;
             StartCoroutine(Slide());
         }
+        Attack();
         Jump();
-        Slide();
         animator.SetFloat("xVelocity", Math.Abs(leftRight));
         animator.SetFloat("yVelocity", rb.velocity.y);
     }
+    public void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.J) && canAttack == true)
+        {
+            attackTime = cdattack;
+            animator.SetTrigger("attack");
+            canAttack = false;
+        }
+        else
+        {
+            if (attackTime <= 0)
+                canAttack = true;
+            else
+                attackTime -= Time.deltaTime;
+        }
+    }
+    public void DameEnemy()
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size,0, Vector2.right,0, enemyLayer);
+        if (hit != null)
+        {
+            enemyHealth = hit.transform.GetComponent<Health>();
+        }
+        enemyHealth.TakeDame(dame);
+    }
+
     void flip()
     {
         if (facingRight && leftRight < 0)
@@ -97,11 +127,12 @@ public class PlayerMove : MonoBehaviour
             }
         }
     }
-    private IEnumerator Slide()
+    public IEnumerator Slide()
     {
         canSlide = false;
         isSlide = true;
         animator.SetBool("isSlide", true);
+        Stamina(20);
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * slidePower, 0f);
@@ -112,14 +143,31 @@ public class PlayerMove : MonoBehaviour
         yield return new WaitForSeconds(cdSlide);
         canSlide = true;
     }
+    private void Stamina(float stamina)
+    {
+        currentStamina -= stamina;
+        staminaBar.SetStamina(currentStamina);
+    }
+    private void HealhStamina()
+    {
+        if (currentStamina >= maxStamina)
+        {
+            currentStamina = 100;
+            return;
+        }
+        else
+        {
+            currentStamina += Time.deltaTime;
+            staminaBar.SetStamina(currentStamina);
+        }
+    }
     private void OnTriggerStay2D(Collider2D collider2D)
     {
         if (collider2D.CompareTag("Trap"))
         {
             if (elapsed == 0)
             {
-                currentHealth -= 2;
-                healthBar.SetHealth(currentHealth);
+                health.TakeDame(5);
             }
             elapsed += Time.deltaTime;
             if (elapsed >= delay)
@@ -130,5 +178,11 @@ public class PlayerMove : MonoBehaviour
     {
         if (collider2D.CompareTag("Trap"))
             elapsed = 0;
+    }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(boxCollider.bounds.center, boxCollider.bounds.size);
     }
 }
