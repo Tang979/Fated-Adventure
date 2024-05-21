@@ -1,29 +1,32 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    [SerializeField] private Transform detectPoint;
+    [SerializeField] private Transform detectPoint, enemy;
     [SerializeField] private LayerMask ground;
     [SerializeField] private bool facingRight;
+    [SerializeField] private float raycastDistance;
     [SerializeField] private float speed;
-    [SerializeField] private float idleDuration;
-    [SerializeField] private float idleTimer;
+    private float idleDuration = .5f;
+    private float idleTimer;
     [SerializeField] private Animator animator;
 
     void Update()
     {
-        Collider2D hit = Physics2D.OverlapCircle(detectPoint.position, .1f, ground);
-        if (!hit)
-        {
-            if (facingRight)
-                Move(1);
-            else    
-                Move(-1);
-        }
-        else
+        RaycastHit2D hit = Physics2D.Raycast(detectPoint.position, Vector2.down, raycastDistance, ground);
+        if(hit.collider == null)
         {
             Detetion();
         }
+        else
+        {
+            if (facingRight)
+                Move(1);
+            else
+                Move(-1);
+        }
+        
     }
     private void OnDisable()
     {
@@ -31,10 +34,9 @@ public class EnemyPatrol : MonoBehaviour
     }
     void Flip()
     {
-        transform.localScale = new Vector3(- transform.localScale.x, 1, 1);
+        enemy.localScale = new Vector3(-enemy.localScale.x, 1, 1);
         facingRight = !facingRight;
     }
-
     void Detetion()
     {
         animator.SetBool("moving", false);
@@ -49,6 +51,6 @@ public class EnemyPatrol : MonoBehaviour
     {
         idleTimer = 0;
         animator.SetBool("moving", true);
-        transform.Translate(Vector2.right * speed * Time.deltaTime * moveRight);
+        enemy.Translate(Vector2.right * speed * Time.deltaTime * moveRight);
     }
 }

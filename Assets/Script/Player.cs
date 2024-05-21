@@ -49,6 +49,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(health.Die)
+            return;
         HealhStamina();
         if (isSlide)
             return;
@@ -88,8 +90,8 @@ public class Player : MonoBehaviour
         if (hit != null)
         {
             enemyHealth = hit.transform.GetComponent<Health>();
+            enemyHealth.TakeDame(dame);
         }
-        enemyHealth.TakeDame(dame);
     }
 
     void flip()
