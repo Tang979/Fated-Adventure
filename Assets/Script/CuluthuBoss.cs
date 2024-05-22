@@ -1,22 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CuluthuBoss : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [Header ("Attack Parameters")]
+    [SerializeField] private float damage;
     [SerializeField] Transform player;
-    Rigidbody2D rb;
-    // Start is called before the first frame update
-    void Start()
+    private Health playerHealth;
+    [SerializeField] float range;
+    public bool isFlipped = false;
+    [SerializeField] private BoxCollider2D boxCollider;
+    [SerializeField] private LayerMask playerMask;
+    public void LookAtPlayer()
     {
-        rb = GetComponent<Rigidbody2D>();
+        Vector3 flipped = transform.localScale;
+        flipped.z *= -1f;
+        if(transform.position.x > player.position.x && isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped=false;
+        }
+        else if(transform.position.x < player.position.x && !isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped=true;
+        }
     }
-
-    // Update is called once per frame
-    void Update()
-    { 
-        Vector2 target = new Vector2(player.position.x, this.transform.position.y);
-        transform.position = Vector2.MoveTowards(this.transform.position, target, speed * Time.fixedDeltaTime);
+    public void Attack()
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.left, 0, playerMask);
+        if(hit.collider != null)
+        {
+            playerHealth = hit.collider.GetComponent<Health>();
+            playerHealth.TakeDame(damage);
+        }
+    }
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(boxCollider.bounds.center, boxCollider.bounds.size);
     }
 }
