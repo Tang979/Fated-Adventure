@@ -30,8 +30,6 @@ public class Player : MonoBehaviour
     public Transform grcheck, attackPoint;
     public LayerMask grLayer, enemyLayer;
     private bool doubleJump = false;
-    private float delay = 1f;
-    private float elapsed = 0;
     [SerializeField] private BoxCollider2D boxCollider;
     private Health enemyHealth;
     AudioManager audioManager;
@@ -56,7 +54,15 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (health.Die)
+        {
+            animator.SetFloat("yVelocity",0);
+            animator.SetFloat("xVelocity",0);
             return;
+        }
+        if(health.CurrentHealth>health.MaxHealth)
+        {
+            health.CurrentHealth = health.MaxHealth;
+        }
         HealhStamina();
         if (isSlide)
             return;
@@ -173,29 +179,21 @@ public class Player : MonoBehaviour
             staminaBar.SetStamina(currentStamina);
         }
     }
-    private void OnTriggerStay2D(Collider2D collider2D)
-    {
-        if (collider2D.CompareTag("Trap"))
-        {
-            if (elapsed == 0)
-            {
-                health.TakeDame(5);
-            }
-            elapsed += Time.deltaTime;
-            if (elapsed >= delay)
-                elapsed = 0;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collider2D)
-    {
-        if (collider2D.CompareTag("Trap"))
-            elapsed = 0;
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("At"))
         {
             dame = dame + 5;
+            Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("Hp"))
+        {
+            health.CurrentHealth = health.CurrentHealth + 25;
+            Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("BigHp"))
+        {
+            health.CurrentHealth = health.CurrentHealth + 50;
             Destroy(collision.gameObject);
         }
     }

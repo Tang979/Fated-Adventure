@@ -15,11 +15,6 @@ public class returnsetting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            previousScene = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene("Setting");
-        }
         if (Input.GetKeyDown(KeyCode.Return))
         {
             if (!string.IsNullOrEmpty(previousScene))

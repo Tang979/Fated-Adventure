@@ -48,20 +48,7 @@ public class Health : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Hp"))
-        {
-            currentHealth = currentHealth + 25;
-            Destroy(collision.gameObject);
-        }
-        if (collision.CompareTag("BigHp"))
-        {
-            currentHealth = currentHealth + 50;
-            Destroy(collision.gameObject);
-        }
-        if (currentHealth > 100)
-        {
-            currentHealth = 100;
-        }
+        
     }
     public void Death()
     {
