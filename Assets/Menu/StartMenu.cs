@@ -7,5 +7,13 @@ public class StartMenu : MonoBehaviour
     public void btnStart()
     {
         SceneManager.LoadScene("Game");
+
     }
+
+    public void btnSetting()
+    {
+        SceneManager.LoadScene(2);
+
+    }
+
 }
