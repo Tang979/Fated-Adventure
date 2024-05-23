@@ -1085,7 +1085,7 @@ Transform:
   m_GameObject: {fileID: 179659209}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7.9168777, y: 0.0039999485, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4275,7 +4275,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 195.60501, y: -11.21, z: -10}
+  m_LocalPosition: {x: -0.57812214, y: -2.054, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12742,7 +12742,7 @@ GameObject:
   - component: {fileID: 1697387252}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42069,11 +42069,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6645693960649510547, guid: 444cec4e2599fc444afc5a51d77e65b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 195.6
+      value: -8.5
       objectReference: {fileID: 0}
     - target: {fileID: 6645693960649510547, guid: 444cec4e2599fc444afc5a51d77e65b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.7
+      value: -3.54
       objectReference: {fileID: 0}
     - target: {fileID: 6645693960649510547, guid: 444cec4e2599fc444afc5a51d77e65b1, type: 3}
       propertyPath: m_LocalPosition.z

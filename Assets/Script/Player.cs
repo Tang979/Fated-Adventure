@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     private float maxStamina = 100;
     [SerializeField] private float dame = 5;
     public float currentStamina;
-    
+
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private Stamina staminaBar;
     private float leftRight;
@@ -34,6 +34,12 @@ public class Player : MonoBehaviour
     private float elapsed = 0;
     [SerializeField] private BoxCollider2D boxCollider;
     private Health enemyHealth;
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +55,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health.Die)
+        if (health.Die)
             return;
         HealhStamina();
         if (isSlide)
@@ -74,6 +80,7 @@ public class Player : MonoBehaviour
         {
             attackTime = cdattack;
             animator.SetTrigger("attack");
+            audioManager.PlaySFX(audioManager.attack);
             canAttack = false;
         }
         else
@@ -86,7 +93,7 @@ public class Player : MonoBehaviour
     }
     public void DameEnemy()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size,0, Vector2.right,0, enemyLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.right, 0, enemyLayer);
         if (hit != null)
         {
             enemyHealth = hit.transform.GetComponent<Health>();
@@ -119,11 +126,13 @@ public class Player : MonoBehaviour
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                 animator.SetTrigger("jump");
+                audioManager.PlaySFX(audioManager.jump);
                 doubleJump = true;
             }
             else if (doubleJump)
             {
                 animator.SetTrigger("doubleJump");
+                audioManager.PlaySFX(audioManager.jump);
                 rb.velocity = new Vector2(rb.velocity.x, jumpPower * 0.8f);
                 doubleJump = false;
             }
@@ -134,6 +143,7 @@ public class Player : MonoBehaviour
         canSlide = false;
         isSlide = true;
         animator.SetBool("isSlide", true);
+        audioManager.PlaySFX(audioManager.slide);
         Stamina(20);
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
