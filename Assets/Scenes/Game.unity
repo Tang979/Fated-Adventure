@@ -42115,7 +42115,8 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 178360482}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 856808428484158795, guid: 444cec4e2599fc444afc5a51d77e65b1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
