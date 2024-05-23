@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Trap
+  - At
+  - Hp
+  - BigHp
   layers:
   - Default
   - TransparentFX
