@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
     private Health health;
     private float maxStamina = 100;
-    private float dame = 5;
+    [SerializeField] private float dame = 5;
     public float currentStamina;
     
     [SerializeField] private HealthBar healthBar;
@@ -181,7 +181,14 @@ public class Player : MonoBehaviour
         if (collider2D.CompareTag("Trap"))
             elapsed = 0;
     }
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("At"))
+        {
+            dame = dame + 5;
+            Destroy(collision.gameObject);
+        }
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
