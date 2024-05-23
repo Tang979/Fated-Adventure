@@ -6,11 +6,13 @@ using UnityEngine;
 public class RoomBoss : MonoBehaviour
 {
     [SerializeField] private GameObject boss, gateRoomBoss, healthBarBoss;
-    private void OnDisable()
+    void Update()
     {
-        gateRoomBoss.SetActive(true);
-        healthBarBoss.SetActive(true);
-        boss.SetActive(true);
+        if (boss == null)
+        {
+            Destroy(healthBarBoss);
+            Destroy(gateRoomBoss);
+        }
     }
     public void OnTriggerStay2D()
     {
