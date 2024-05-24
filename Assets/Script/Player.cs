@@ -67,6 +67,8 @@ public class Player : MonoBehaviour
         HealhStamina();
         if (isSlide)
             return;
+        if(isGrounded())
+            animator.SetFloat("yVelocity", 0);
         leftRight = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(speed * leftRight, rb.velocity.y);
         flip();
