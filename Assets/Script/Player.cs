@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -183,7 +184,7 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag("At"))
         {
-            dame = dame + 5;
+            dame = dame + 2;
             Destroy(collision.gameObject);
         }
         if (collision.CompareTag("Hp"))

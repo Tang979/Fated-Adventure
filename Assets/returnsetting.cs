@@ -6,29 +6,20 @@ using UnityEngine.SceneManagement;
 public class returnsetting : MonoBehaviour
 {
     private static string previousScene;
-    // Start is called before the first frame update
-    void Start()
+    public void btnStart()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            if (!string.IsNullOrEmpty(previousScene))
-            {
-                SceneManager.LoadScene(previousScene);
-            }
-        }
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Game");
     }
     public void GoToSettings()
     {
         previousScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene("Setting");
     }
-
+    public void Quit()
+    {
+        Application.Quit();
+    }
     public void ReturnToPreviousScene()
     {
         if (!string.IsNullOrEmpty(previousScene))

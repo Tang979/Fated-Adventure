@@ -10,6 +10,7 @@ public class BossRun : StateMachineBehaviour
     [SerializeField] private float cooldownTimer = 0;
     [SerializeField] float attackRange = 3f;
     [SerializeField] Transform player;
+    [SerializeField] Health health;
     [SerializeField] Rigidbody2D rb;
     CuluthuBoss boss;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -18,11 +19,17 @@ public class BossRun : StateMachineBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
         boss = animator.GetComponent<CuluthuBoss>();
+        health = animator.GetComponent<Health>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if(health.Die)
+        {
+            animator.SetTrigger("death");
+            return;
+        }
         cooldownTimer += Time.deltaTime;
         boss.LookAtPlayer();
         if (Vector2.Distance(player.position, rb.position) <= attackRange)
