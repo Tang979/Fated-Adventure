@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private bool isSlide;
     private float slidePower = 10f;
     private float slideTime = .2f, attackTime;
-    private float cdSlide = 1f, cdattack = 1f;
+    private float cdSlide = 1f, cdattack = .75f;
 
     private Health health;
     private float maxStamina = 100;
@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     public LayerMask grLayer, enemyLayer;
     private bool doubleJump = false;
     [SerializeField] private BoxCollider2D boxCollider;
+    [SerializeField] private GameManagerScript gameManager;
     private Health enemyHealth;
     AudioManager audioManager;
 
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour
         {
             animator.SetFloat("yVelocity",0);
             animator.SetFloat("xVelocity",0);
+            gameManager.GameOver();
             return;
         }
         if(health.CurrentHealth>health.MaxHealth)
@@ -102,7 +104,7 @@ public class Player : MonoBehaviour
     }
     public void DameEnemy()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.right, 0, enemyLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.right, 0, enemyLayer);//tạo box kiểm tra có quái trong phạm vi tấn công không
         if (hit != null)
         {
             enemyHealth = hit.transform.GetComponent<Health>();
@@ -125,7 +127,7 @@ public class Player : MonoBehaviour
     }
     private bool isGrounded()
     {
-        return Physics2D.OverlapCircle(grcheck.position, 0.1f, grLayer);
+        return Physics2D.OverlapCircle(grcheck.position, 0.1f, grLayer);//kiểm tra chạm sàn
     }
     void Jump()
     {

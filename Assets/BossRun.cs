@@ -9,6 +9,7 @@ public class BossRun : StateMachineBehaviour
     [SerializeField] float attackCooldown;
     [SerializeField] private float cooldownTimer = 0;
     [SerializeField] float attackRange = 3f;
+    [SerializeField] float range;
     [SerializeField] Transform player;
     [SerializeField] Health health;
     [SerializeField] Rigidbody2D rb;
@@ -40,9 +41,13 @@ public class BossRun : StateMachineBehaviour
                 animator.SetTrigger("attack1");
             }
         }
-            Vector2 target = new Vector2(player.position.x, animator.transform.position.y);
+        else
+        {
+            Vector2 target = new Vector2(player.position.x+range*animator.transform.localScale.z, animator.transform.position.y);
             Vector2 newPos = Vector2.MoveTowards(animator.transform.position, target, speed * Time.fixedDeltaTime);
             rb.MovePosition(newPos);
+
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
