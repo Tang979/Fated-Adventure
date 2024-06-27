@@ -26,7 +26,6 @@ public class EnemyPatrol : MonoBehaviour
             else
                 Move(-1);
         }
-        
     }
     private void OnDisable()
     {

@@ -71,7 +71,6 @@ public class Player : MonoBehaviour
             return;
         if(isGrounded())
             animator.SetFloat("yVelocity", 0);
-        leftRight = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(speed * leftRight, rb.velocity.y);
         flip();
         if (Input.GetKey(KeyCode.S) && canSlide && currentStamina > 20)
@@ -82,6 +81,7 @@ public class Player : MonoBehaviour
         }
         Attack();
         Jump();
+        leftRight = Input.GetAxis("Horizontal");
         animator.SetFloat("xVelocity", Math.Abs(leftRight));
         animator.SetFloat("yVelocity", rb.velocity.y);
     }
